@@ -1,4 +1,4 @@
-package main
+package server
 
 import (
 	"fmt"
@@ -7,11 +7,7 @@ import (
 	"go.alxs.xyz/ipns-service/api"
 )
 
-func main() {
-	http.ListenAndServe(":8081", http.HandlerFunc(handler))
-}
-
-func handler(w http.ResponseWriter, r *http.Request) {
+func Handler(w http.ResponseWriter, r *http.Request) {
 	token := r.URL.Query().Get("token")
 	cid := r.URL.Query().Get("cid")
 	switch r.URL.Path {
